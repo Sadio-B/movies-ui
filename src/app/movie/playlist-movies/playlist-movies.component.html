@@ -1,0 +1,33 @@
+<div class="container ">
+    <select
+        class="form-select my-3"
+        aria-label="Select movies to display"
+        (change)="onSelectMoviesToDisplay($event)">
+        <option selected value="all">Display all movies</option>
+        <option value="already">Display movies already seen</option>
+        <option value="never">Display movies never seen</option>
+      </select>
+    <div class="d-flex flex-wrap justify-content-between">
+        <div *ngFor="let movie of moviesInPlaylistToDisplay;" class="col-sm-3 mb-3">
+            <div class="card m-2">
+                <div class="card-body d-flex flex-column align-items-center">
+                    <h2 class="card-title">{{movie.title}}</h2>
+                    <h3>Note: <span [innerHtml]="movie.note | noteToStars"></span></h3>
+                    <img src="{{movie.poster}}" class="d-block img-thumbnail mb-3" alt="poster of {{movie.title}} movie" style="height: 200px; width:200px; margin: auto;">
+                    <p class="card-text">Release date: {{movie.releaseDate | date}}</p>           
+                    <button 
+                        class="btn btn-primary d-flex flex-column align-items-center"
+                        (click)="onClickButtonUpdateWatchStatus(movie)">
+                        <ng-container *ngIf="movie.wasWatched;else wasNotWatched">
+                            <i class="fas fa-check"></i>
+                        </ng-container>
+                        <ng-template #wasNotWatched>
+                            <i class="fas fa-plus"></i>
+                        </ng-template>     
+                        Already seen
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

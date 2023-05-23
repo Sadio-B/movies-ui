@@ -1,0 +1,21 @@
+<mat-tab-group>
+    <mat-tab label="Movies">
+        <app-movies
+            [allMoviesToDisplay]="allMoviesToDisplay"
+            (addToFavoritesEvent)="onAddtoFavorites($event)"
+            (addtoPlaylistEvent)="onAddtoPlaylist($event)"
+            (selectSortToDisplayEvent)="onSelectSortToDisplay($event)">>
+        </app-movies>
+    </mat-tab>
+    <mat-tab label="Favorites">
+        <app-favorites-movies [moviesInfavorites]="moviesInfavorites"></app-favorites-movies>
+    </mat-tab>
+    <mat-tab label="Playslist"> 
+        <app-playlist-movies
+            [moviesInPlaylistToDisplay]="moviesInPlaylistToDisplay"
+            (updateWatchStatusEvent)="onUpdateWatchStatus($event)"
+            (selectMoviesToDisplayEvent)="onSelectMoviesToDisplay($event)">
+        </app-playlist-movies>
+    </mat-tab>
+</mat-tab-group>
+

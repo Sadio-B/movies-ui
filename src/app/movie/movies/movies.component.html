@@ -1,0 +1,50 @@
+<div class="container">
+    <select
+        class="form-select my-3"
+        aria-label="choose a sort order"
+        (change)="onSelectSortToDisplay($event)">
+        <option selected value="default">Choose a sort order</option>
+        <option value="byAscendingNote">Sort by ascending note</option>
+        <option value="byDescendingNote">Sort by descending note</option>
+        <option value="byAscendingDate">Sort by Ascending date</option>
+        <option value="byDescendingDate">Sort by descending date</option>
+  </select>
+    <div class="d-flex flex-wrap justify-content-between">
+        <div *ngFor="let movie of allMoviesToDisplay; trackBy: trackByMovieId" class="col-sm-3 mb-3">
+            <div class="card m-2">
+                <div class="card-body">
+                    <h2 class="card-title text-center">{{movie.title}}</h2>
+                    <h3 class="text-center">Note: <span [innerHtml]="movie.note | noteToStars"></span></h3>
+                    <img src="{{movie.poster}}" class="d-block img-thumbnail mb-3" alt="poster of {{movie.title}} movie" style="height: 200px; width:200px; margin: auto;">
+                    <p class="card-text text-center">Release date: {{movie.releaseDate | date}}</p>
+                    <div class="d-flex justify-content-between">
+                        <button
+                            class="btn btn-primary d-flex flex-column align-items-center"
+                            [disabled]="movie.isInFavorites"
+                            (click)="onClickButtonAddtoFavorites(movie)">
+                            <ng-container *ngIf="movie.isInFavorites;else isNotInFavorites">
+                                <i class="fas fa-check"></i>
+                            </ng-container>
+                            <ng-template #isNotInFavorites>
+                                <i class="fas fa-plus"></i>
+                            </ng-template>     
+                            <span class="ml-1">favorites</span> 
+                        </button>
+                        <button 
+                            class="btn btn-primary d-flex flex-column align-items-center"
+                            [disabled]="movie.isInPlaylist"
+                            (click)="onClickButtonAddtoPlaylist(movie)">
+                            <ng-container *ngIf="movie.isInPlaylist;else isnotInPlaylist">
+                                <i class="fas fa-check"></i>
+                            </ng-container>
+                            <ng-template #isnotInPlaylist>
+                                <i class="fas fa-plus"></i>
+                            </ng-template>                          
+                            <span class="ml-1">playlist</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

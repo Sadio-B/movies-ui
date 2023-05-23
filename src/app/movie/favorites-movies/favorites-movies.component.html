@@ -1,0 +1,14 @@
+<div class="container ">
+    <div class="d-flex flex-wrap justify-content-between">
+        <div *ngFor="let movie of moviesInfavorites; trackBy: trackByMovieId" class="col-sm-3 mb-3">
+            <div class="card m-2">
+                <div class="card-body d-flex flex-column align-items-center">
+                    <h2 class="card-title">{{movie.title}}</h2>
+                    <h3>Note: <span [innerHtml]="movie.note | noteToStars"></span></h3>
+                    <img src="{{movie.poster}}" class="d-block img-thumbnail mb-3" alt="poster of {{movie.title}} movie" style="height: 200px; width:200px; margin: auto;">
+                    <p class="card-text">Release date: {{movie.releaseDate | date}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
