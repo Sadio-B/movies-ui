@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Movie } from '../models/movie';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class FavoritesStoreMovieService {
   private favoritesStore: BehaviorSubject<Movie[]> = new BehaviorSubject<Movie[]>([]);
   favoritesStore$: Observable<Movie[]> = this.favoritesStore.asObservable();

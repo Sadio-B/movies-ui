@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { MovieInPlaylist } from '../models/movie-in-playlist';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class PlaylistStoreMovieService {
 
   private playlistStore: BehaviorSubject<MovieInPlaylist[]> = new BehaviorSubject<MovieInPlaylist[]>([]);

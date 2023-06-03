@@ -1,11 +1,15 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MoviesForListToAdd } from '../shared/models/movies-for-list-to-add';
+import { NoteToStarsPipe } from '../../shared/pipes/note-to-stars.pipe';
+import { NgFor, NgIf, DatePipe } from '@angular/common';
 
 
 @Component({
-  selector: 'app-movies',
-  templateUrl: './movies.component.html',
-  styleUrls: ['./movies.component.scss']
+    selector: 'app-movies',
+    templateUrl: './movies.component.html',
+    styleUrls: ['./movies.component.scss'],
+    standalone: true,
+    imports: [NgFor, NgIf, DatePipe, NoteToStarsPipe]
 })
 export class MoviesComponent {
   @Input() allMoviesToDisplay: MoviesForListToAdd[] = [];

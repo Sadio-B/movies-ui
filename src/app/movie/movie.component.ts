@@ -6,11 +6,18 @@ import { Movie } from './shared/models/movie';
 import { MovieInPlaylist } from './shared/models/movie-in-playlist';
 import { MoviesForListToAdd } from './shared/models/movies-for-list-to-add';
 import { PlaylistStoreMovieService } from './shared/services/playlist-store-movie.service';
+import { PlaylistMoviesComponent } from './playlist-movies/playlist-movies.component';
+import { FavoritesMoviesComponent } from './favorites-movies/favorites-movies.component';
+import { MoviesComponent } from './movies/movies.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
-  selector: 'app-movie',
-  templateUrl: './movie.component.html',
-  styleUrls: ['./movie.component.scss']
+    selector: 'app-movie',
+    templateUrl: './movie.component.html',
+    styleUrls: ['./movie.component.scss'],
+    standalone: true,
+    imports: [MatTabsModule, HttpClientModule, FavoritesMoviesComponent, MoviesComponent, PlaylistMoviesComponent]
 })
 export class MovieComponent {
   moviesInfavorites: Movie[] = [];

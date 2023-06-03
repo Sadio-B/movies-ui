@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'noteToStars'
+    name: 'noteToStars',
+    standalone: true
 })
 export class NoteToStarsPipe implements PipeTransform {
 
