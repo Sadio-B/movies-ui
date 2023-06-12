@@ -2,6 +2,16 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.8.
 
+## Exercise statement
+
+You will need to set up an UI from the stories below:
+ 1. An overview with a list of movies
+ 2. The ability to add a movie to the favorites
+ 3.  The possibility of displaying only the films in favorite
+ 4.  The possibility of putting a film in a viewing list, and selecting whether or not it has been seen afterwards
+ 5.  The possibility of displaying only the films watched/to be seen
+ 6. Display the rating in the form of stars (rounded to the whole number, but with the full number displayed next to it. For example: a film with a rating of 3.45 we put 3 stars but with 3.45 written next to it or elsewhere)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
